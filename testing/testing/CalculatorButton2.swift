@@ -12,7 +12,7 @@ struct CalculatorButton2: ButtonStyle {
         if #available(iOS 15.0, *) {
             configuration.label
                 .padding()
-                .background(Color.gray)
+                .background(Color.secondary)
                 .foregroundColor(.white)
                 .clipShape(Capsule())
                 .buttonStyle(.bordered)

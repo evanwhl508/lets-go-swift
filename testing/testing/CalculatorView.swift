@@ -20,163 +20,218 @@ struct CalculatorView: View {
             VStack {
                 Text("\(value)")
                     .keyboardType(.numberPad)
-                    .frame(width: width, height: height*0.3, alignment: .trailing)
+                    .frame(width: width, height: height*0.3, alignment: .bottomTrailing)
                     .foregroundColor(.white)
-                    .fixedSize()
+                    .font(.system(size: 70))
                 HStack {
-                    Button("C")
+                    Button(action:
                     {
                         value = "0"
+                    }) {
+                        Text("C")
+                            .frame(maxWidth: width * 0.15, maxHeight: height * 0.07)
                     }
                     .buttonStyle(CalculatorButton1())
-                    .frame(maxWidth: width / 4)
-                    Button("+/-") {}
+                    .frame(minWidth: width / 4, minHeight: height*0.13)
+                    Button(action: {}) {
+                        Text("+/-")
+                            .frame(maxWidth: width * 0.15, maxHeight: height * 0.07)
+                    }
                     .buttonStyle(CalculatorButton1())
-                    Button("%") {}
+                    .frame(minWidth: width / 4, minHeight: height*0.13)
+                    Button(action: {}) {
+                        Text("%")
+                            .frame(maxWidth: width * 0.15, maxHeight: height * 0.07)
+                    }
                     .buttonStyle(CalculatorButton1())
-                    .frame(maxWidth: width / 4)
-                    Button("/") {
+                    .frame(maxWidth: width / 4, maxHeight: height*0.13)
+                    Button(action: {
                         if (value != "0" && !signList.contains("\(value.last!)")) {
                             value += "/"
                         }
                         action = "/"
+                    }) {
+                        Text("/")
+                            .frame(maxWidth: width * 0.15, maxHeight: height * 0.07)
                     }
                     .buttonStyle(CalculatorButton3())
-                    .frame(maxWidth: width / 4)
+                    .frame(minWidth: width / 4, minHeight: height*0.13)
                 }
-                .frame(width: width, height: height*0.13, alignment: .center)
+                .frame(width: .infinity, height: height*0.13, alignment: .center)
                 HStack {
-                    Button("7") {
+                    Button(action: {
                         if (value != "0") {
                             value += "7"
                         } else {
                             value = "7"
                         }
+                    }) {
+                        Text("7")
+                            .frame(maxWidth: width * 0.15, maxHeight: height * 0.07)
                     }
                     .buttonStyle(CalculatorButton2())
-                    .frame(maxWidth: width / 4)
-                    Button("8") {
+                    .frame(minWidth: width / 4, minHeight: height*0.13)
+                    Button(action: {
                         if (value != "0") {
                             value += "8"
                         } else {
                             value = "8"
                         }
+                    }) {
+                        Text("8")
+                            .frame(maxWidth: width * 0.15, maxHeight: height * 0.07)
                     }
                     .buttonStyle(CalculatorButton2())
-                    .frame(maxWidth: width / 4)
-                    Button("9") {
+                    .frame(minWidth: width / 4, minHeight: height*0.13)
+                    Button(action: {
                         if (value != "0") {
                             value += "9"
                         } else {
                             value = "9"
                         }
+                    }) {
+                        Text("9")
+                            .frame(maxWidth: width * 0.15, maxHeight: height * 0.07)
                     }
                     .buttonStyle(CalculatorButton2())
-                    .frame(maxWidth: width / 4)
-                    Button("x") {
+                    .frame(minWidth: width / 4, minHeight: height*0.13)
+                    Button(action: {
                         if (value != "0" && !signList.contains("\(value.last!)")) {
                             value += "x"
                         }
                         action = "x"
+                    }) {
+                        Text("x")
+                            .frame(maxWidth: width * 0.15, maxHeight: height * 0.07)
                     }
                     .buttonStyle(CalculatorButton3())
-                    .frame(maxWidth: width / 4)
+                    .frame(minWidth: width / 4, minHeight: height*0.13)
                 }
-                .frame(width: width, height: height*0.13, alignment: .center)
+                .frame(width: .infinity, height: height*0.13, alignment: .center)
                 HStack {
-                    Button("4") {
+                    Button(action: {
                         if (value != "0") {
                             value += "4"
                         } else {
                             value = "4"
                         }
+                    }) {
+                        Text("4")
+                            .frame(maxWidth: width * 0.15, maxHeight: height * 0.07)
                     }
                     .buttonStyle(CalculatorButton2())
-                    .frame(maxWidth: width / 4)
-                    Button("5") {
+                    .frame(minWidth: width / 4, minHeight: height*0.13)
+                    Button(action: {
                         if (value != "0") {
                             value += "5"
                         } else {
                             value = "5"
                         }
+                    }) {
+                        Text("5")
+                            .frame(maxWidth: width * 0.15, maxHeight: height * 0.07)
                     }
                     .buttonStyle(CalculatorButton2())
-                    .frame(maxWidth: width / 4)
-                    Button("6") {
+                    .frame(minWidth: width / 4, minHeight: height*0.13)
+                    Button(action: {
                         if (value != "0") {
                             value += "6"
                         } else {
                             value = "6"
                         }
+                    }) {
+                        Text("6")
+                            .frame(maxWidth: width * 0.15, maxHeight: height * 0.07)
                     }
                     .buttonStyle(CalculatorButton2())
-                    .frame(maxWidth: width / 4)
-                    Button("-") {
+                    .frame(minWidth: width / 4, minHeight: height*0.13)
+                    Button(action: {
                         if (value != "0" && !signList.contains("\(value.last!)")) {
                             value += "-"
                         }
                         action = "-"
+                    }) {
+                        Text("-")
+                            .frame(maxWidth: width * 0.15, maxHeight: height * 0.07)
                     }
                     .buttonStyle(CalculatorButton3())
-                    .frame(maxWidth: width / 4)
+                    .frame(minWidth: width / 4, minHeight: height*0.13)
                 }
-                .frame(width: width, height: height*0.13, alignment: .center)
+                .frame(width: .infinity, height: height*0.13, alignment: .center)
                 HStack {
-                    Button("1") {
+                    Button(action: {
                         if (value != "0") {
                             value += "1"
                         } else {
                             value = "1"
                         }
+                    }) {
+                        Text("1")
+                            .frame(maxWidth: width * 0.15, maxHeight: height * 0.07)
                     }
                     .buttonStyle(CalculatorButton2())
-                    .frame(maxWidth: width / 4)
-                    Button("2") {
+                    .frame(minWidth: width / 4, minHeight: height*0.13)
+                    Button(action: {
                         if (value != "0") {
                             value += "2"
                         } else {
                             value = "2"
                         }
+                    }) {
+                        Text("2")
+                            .frame(maxWidth: width * 0.15, maxHeight: height * 0.07)
                     }
                     .buttonStyle(CalculatorButton2())
-                    .frame(maxWidth: width / 4)
-                    Button("3") {
+                    .frame(minWidth: width / 4, minHeight: height*0.13)
+                    Button(action: {
                         if (value != "0") {
                             value += "3"
                         } else {
                             value = "3"
                         }
+                    }) {
+                        Text("3")
+                            .frame(maxWidth: width * 0.15, maxHeight: height * 0.07)
                     }
                     .buttonStyle(CalculatorButton2())
-                    .frame(maxWidth: width / 4)
-                    Button("+") {
+                    .frame(minWidth: width / 4, minHeight: height*0.13)
+                    Button(action: {
                         if (value != "0" && !signList.contains("\(value.last!)")) {
                             value += "+"
                         }
                         action = "+"
+                    }) {
+                        Text("+")
+                            .frame(maxWidth: width * 0.15, maxHeight: height * 0.07)
                     }
-                    .frame(maxWidth: width / 4)
+                    .frame(minWidth: width / 4, minHeight: height*0.13)
                 }
                 .buttonStyle(CalculatorButton3())
-                .frame(width: width, height: height*0.13, alignment: .center)
+                .frame(width: .infinity, height: height*0.13, alignment: .center)
                 HStack {
-                    Button("0") {
+                    Button(action: {
                         if (value != "0") {
                             value += "0"
                         } else {
                             value = "0"
                         }
+                    }) {
+                        Text("0")
+                            .frame(maxWidth: width * 0.35, maxHeight: height * 0.07)
                     }
                     .buttonStyle(CalculatorButton2())
-                    .frame(maxWidth: width / 2)
-                    Button(".") {
+                    .frame(minWidth: width / 2, minHeight: height*0.13)
+                    Button(action: {
                         if (value != "0" && !signList.contains("\(value.last!)")) {
                             value += "."
                         }
+                    }) {
+                        Text(".")
+                            .frame(maxWidth: width * 0.15, maxHeight: height * 0.07)
                     }
                     .buttonStyle(CalculatorButton2())
-                    .frame(maxWidth: width / 4)
-                    Button("=") {
+                    .frame(minWidth: width / 4, minHeight: height*0.13)
+                    Button(action: {
                         let arr = value.components(separatedBy: CharacterSet(charactersIn: operatorList))
                             .map(Int.init)
                         print("\(arr)")
@@ -193,11 +248,14 @@ struct CalculatorView: View {
                             value = value
                         }
                         
+                    }) {
+                        Text("=")
+                            .frame(maxWidth: width * 0.15, maxHeight: height * 0.07)
                     }
                     .buttonStyle(CalculatorButton3())
-                    .frame(maxWidth: width / 4)
+                    .frame(minWidth: width / 4, minHeight: height*0.13)
                 }
-                .frame(width: width, height: height*0.13, alignment: .center)
+                .frame(width: .infinity, height: height*0.13, alignment: .center)
             }.background(.black)
         } else {
             // Fallback on earlier versions

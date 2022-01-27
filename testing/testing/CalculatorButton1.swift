@@ -16,6 +16,7 @@ struct CalculatorButton1: ButtonStyle {
                 .foregroundColor(.black)
                 .clipShape(Capsule())
                 .buttonStyle(.borderedProminent)
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
         } else {
             // Fallback on earlier versions
         }
