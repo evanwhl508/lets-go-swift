@@ -30,18 +30,29 @@ struct CalculatorView: View {
                     }) {
                         Text("C")
                             .frame(maxWidth: width * 0.15, maxHeight: height * 0.07)
+                            .font(.largeTitle)
                     }
                     .buttonStyle(CalculatorButton1())
                     .frame(minWidth: width / 4, minHeight: height*0.13)
-                    Button(action: {}) {
+                    Button(action: {
+                        if (value.starts(with: "-")){
+                            value.removeFirst()
+                        } else {
+                            value = "-" + value
+                        }
+                    }) {
                         Text("+/-")
                             .frame(maxWidth: width * 0.15, maxHeight: height * 0.07)
+                            .font(.largeTitle)
                     }
                     .buttonStyle(CalculatorButton1())
                     .frame(minWidth: width / 4, minHeight: height*0.13)
-                    Button(action: {}) {
+                    Button(action: {
+                        
+                    }) {
                         Text("%")
                             .frame(maxWidth: width * 0.15, maxHeight: height * 0.07)
+                            .font(.largeTitle)
                     }
                     .buttonStyle(CalculatorButton1())
                     .frame(maxWidth: width / 4, maxHeight: height*0.13)
@@ -53,6 +64,7 @@ struct CalculatorView: View {
                     }) {
                         Text("/")
                             .frame(maxWidth: width * 0.15, maxHeight: height * 0.07)
+                            .font(.largeTitle)
                     }
                     .buttonStyle(CalculatorButton3())
                     .frame(minWidth: width / 4, minHeight: height*0.13)
@@ -68,6 +80,7 @@ struct CalculatorView: View {
                     }) {
                         Text("7")
                             .frame(maxWidth: width * 0.15, maxHeight: height * 0.07)
+                            .font(.largeTitle)
                     }
                     .buttonStyle(CalculatorButton2())
                     .frame(minWidth: width / 4, minHeight: height*0.13)
@@ -80,6 +93,7 @@ struct CalculatorView: View {
                     }) {
                         Text("8")
                             .frame(maxWidth: width * 0.15, maxHeight: height * 0.07)
+                            .font(.largeTitle)
                     }
                     .buttonStyle(CalculatorButton2())
                     .frame(minWidth: width / 4, minHeight: height*0.13)
@@ -92,6 +106,7 @@ struct CalculatorView: View {
                     }) {
                         Text("9")
                             .frame(maxWidth: width * 0.15, maxHeight: height * 0.07)
+                            .font(.largeTitle)
                     }
                     .buttonStyle(CalculatorButton2())
                     .frame(minWidth: width / 4, minHeight: height*0.13)
@@ -103,6 +118,7 @@ struct CalculatorView: View {
                     }) {
                         Text("x")
                             .frame(maxWidth: width * 0.15, maxHeight: height * 0.07)
+                            .font(.largeTitle)
                     }
                     .buttonStyle(CalculatorButton3())
                     .frame(minWidth: width / 4, minHeight: height*0.13)
@@ -118,6 +134,7 @@ struct CalculatorView: View {
                     }) {
                         Text("4")
                             .frame(maxWidth: width * 0.15, maxHeight: height * 0.07)
+                            .font(.largeTitle)
                     }
                     .buttonStyle(CalculatorButton2())
                     .frame(minWidth: width / 4, minHeight: height*0.13)
@@ -130,6 +147,7 @@ struct CalculatorView: View {
                     }) {
                         Text("5")
                             .frame(maxWidth: width * 0.15, maxHeight: height * 0.07)
+                            .font(.largeTitle)
                     }
                     .buttonStyle(CalculatorButton2())
                     .frame(minWidth: width / 4, minHeight: height*0.13)
@@ -142,6 +160,7 @@ struct CalculatorView: View {
                     }) {
                         Text("6")
                             .frame(maxWidth: width * 0.15, maxHeight: height * 0.07)
+                            .font(.largeTitle)
                     }
                     .buttonStyle(CalculatorButton2())
                     .frame(minWidth: width / 4, minHeight: height*0.13)
@@ -153,6 +172,7 @@ struct CalculatorView: View {
                     }) {
                         Text("-")
                             .frame(maxWidth: width * 0.15, maxHeight: height * 0.07)
+                            .font(.largeTitle)
                     }
                     .buttonStyle(CalculatorButton3())
                     .frame(minWidth: width / 4, minHeight: height*0.13)
@@ -168,6 +188,7 @@ struct CalculatorView: View {
                     }) {
                         Text("1")
                             .frame(maxWidth: width * 0.15, maxHeight: height * 0.07)
+                            .font(.largeTitle)
                     }
                     .buttonStyle(CalculatorButton2())
                     .frame(minWidth: width / 4, minHeight: height*0.13)
@@ -180,6 +201,7 @@ struct CalculatorView: View {
                     }) {
                         Text("2")
                             .frame(maxWidth: width * 0.15, maxHeight: height * 0.07)
+                            .font(.largeTitle)
                     }
                     .buttonStyle(CalculatorButton2())
                     .frame(minWidth: width / 4, minHeight: height*0.13)
@@ -192,6 +214,7 @@ struct CalculatorView: View {
                     }) {
                         Text("3")
                             .frame(maxWidth: width * 0.15, maxHeight: height * 0.07)
+                            .font(.largeTitle)
                     }
                     .buttonStyle(CalculatorButton2())
                     .frame(minWidth: width / 4, minHeight: height*0.13)
@@ -203,6 +226,7 @@ struct CalculatorView: View {
                     }) {
                         Text("+")
                             .frame(maxWidth: width * 0.15, maxHeight: height * 0.07)
+                            .font(.largeTitle)
                     }
                     .frame(minWidth: width / 4, minHeight: height*0.13)
                 }
@@ -218,39 +242,50 @@ struct CalculatorView: View {
                     }) {
                         Text("0")
                             .frame(maxWidth: width * 0.35, maxHeight: height * 0.07)
+                            .font(.largeTitle)
                     }
                     .buttonStyle(CalculatorButton2())
                     .frame(minWidth: width / 2, minHeight: height*0.13)
                     Button(action: {
-                        if (value != "0" && !signList.contains("\(value.last!)")) {
+                        if (value != "0" && !signList.contains("\(value.last!)") && !["."].contains("\(value.last!)")) {
                             value += "."
                         }
                     }) {
                         Text(".")
                             .frame(maxWidth: width * 0.15, maxHeight: height * 0.07)
+                            .font(.largeTitle)
                     }
                     .buttonStyle(CalculatorButton2())
                     .frame(minWidth: width / 4, minHeight: height*0.13)
                     Button(action: {
+                        var is_negative = false
+                        if (value.starts(with: "-")){
+                            value.removeFirst()
+                            is_negative = true
+                        }
                         let arr = value.components(separatedBy: CharacterSet(charactersIn: operatorList))
-                            .map(Int.init)
-                        print("\(arr)")
-                        print("\(action), \(value)")
+                            .map(Double.init)
+                        var num1 = arr[0]!
+                        let num2 = arr[1]!
+                        if (is_negative) {
+                            num1 = arr[0]! * -1
+                        }
                         if (action == "+") {
-                            value = String(arr[0]! + arr[1]!)
+                            value = String(num1 + num2)
                         } else if (action == "-") {
-                            value = String(arr[0]! - arr[1]!)
+                            value = String(num1 - num2)
                         } else if (action == "x") {
-                            value = String(arr[0]! * arr[1]!)
+                            value = String(num1 * num2)
                         } else if (action == "/") {
-                            value = String(arr[0]! / arr[1]!)
+                            value = String(num1 / num2)
                         } else {
-                            value = value
+                            
                         }
                         
                     }) {
                         Text("=")
                             .frame(maxWidth: width * 0.15, maxHeight: height * 0.07)
+                            .font(.largeTitle)
                     }
                     .buttonStyle(CalculatorButton3())
                     .frame(minWidth: width / 4, minHeight: height*0.13)
